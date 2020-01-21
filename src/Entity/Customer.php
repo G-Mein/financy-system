@@ -38,6 +38,16 @@ class Customer
      */
     private $address;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $phoneNumber;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $mailAddress;
+
     public function __construct()
     {
         $this->invoices = new ArrayCollection();
@@ -131,6 +141,30 @@ class Customer
     public function setAddress(?Address $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(?string $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getMailAddress(): ?string
+    {
+        return $this->mailAddress;
+    }
+
+    public function setMailAddress(?string $mailAddress): self
+    {
+        $this->mailAddress = $mailAddress;
 
         return $this;
     }

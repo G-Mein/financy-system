@@ -27,6 +27,11 @@ class Company
      */
     private $address;
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $customersStartFrom;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -52,6 +57,18 @@ class Company
     public function setAddress(Address $address): self
     {
         $this->address = $address;
+
+        return $this;
+    }
+
+    public function getCustomersStartFrom(): ?int
+    {
+        return $this->customersStartFrom;
+    }
+
+    public function setCustomersStartFrom(int $customersStartFrom): self
+    {
+        $this->customersStartFrom = $customersStartFrom;
 
         return $this;
     }
