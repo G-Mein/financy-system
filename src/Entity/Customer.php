@@ -48,6 +48,12 @@ class Customer
      */
     private $mailAddress;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Company", inversedBy="customers")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $company;
+
     public function __construct()
     {
         $this->invoices = new ArrayCollection();
@@ -165,6 +171,18 @@ class Customer
     public function setMailAddress(?string $mailAddress): self
     {
         $this->mailAddress = $mailAddress;
+
+        return $this;
+    }
+
+    public function getCompany(): ?Company
+    {
+        return $this->company;
+    }
+
+    public function setCompany(?Company $company): self
+    {
+        $this->company = $company;
 
         return $this;
     }

@@ -52,11 +52,8 @@ class User implements UserInterface
      */
     private $name;
 
-    private $userPasswordEncoder;
-
-    public function __construct(UserPasswordEncoderInterface $userPasswordEncoder)
+    public function __construct()
     {
-        $this->userPasswordEncoder = $userPasswordEncoder;
         $this->invoices = new ArrayCollection();
     }
 
