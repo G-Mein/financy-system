@@ -42,15 +42,14 @@ class User implements UserInterface
     private $invoices;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Address", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
-    private $address;
+    private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $name;
+    private $firstName;
 
     public function __construct()
     {
@@ -166,26 +165,26 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getAddress(): ?Address
+    public function getLastName(): ?string
     {
-        return $this->address;
+        return $this->lastName;
     }
 
-    public function setAddress(Address $address): self
+    public function setLastName(string $lastName): self
     {
-        $this->address = $address;
+        $this->lastName = $lastName;
 
         return $this;
     }
 
-    public function getName(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->name;
+        return $this->firstName;
     }
 
-    public function setName(string $name): self
+    public function setFirstName(string $firstName): self
     {
-        $this->name = $name;
+        $this->firstName = $firstName;
 
         return $this;
     }
